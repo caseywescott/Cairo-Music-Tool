@@ -20,15 +20,25 @@ struct PitchClass {
 }
 
 #[derive(Copy, Drop)]
-struct PitchInterval {
-    quality: u8,
-    size: u8,
-}
-
-#[derive(Copy, Drop)]
 enum Direction {
     Up: (),
     Down: (),
     Oblique: ()
 }
 
+#[derive(Copy, Drop)]
+struct PitchInterval {
+    size: u8,
+    direction: Direction,
+    quality: Quality,
+}
+
+#[derive(Copy, Drop)]
+enum Quality {
+    Major: (),
+    Minor: (),
+    Perfect: (),
+    Diminshed: (),
+    Augmented: (),
+    Undefined: ()
+}
